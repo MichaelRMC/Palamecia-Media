@@ -33,7 +33,10 @@ header{
                       "inventory form";
     
 }
-
+#inventory {
+  display: grid;
+  grid-template-areas: "";
+}
 
 
 
