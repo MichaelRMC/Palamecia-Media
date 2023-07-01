@@ -11,15 +11,17 @@ body, html {
   width: 100%;
 }
 
-header{
+.gameHeader{
   text-align: center;
-  color: #506591 ;
+  color: #b99030;
   font-family:OPTIEngeEtienne;
-  background: url("https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/ABOUT_001.jpg") no-repeat center center;
+  font-size: 50px;
+  text-shadow:2px 0 0 #C7CBD4,0 2px 0 #C7CBD4,-2px 0 0 #C7CBD4,0 -2px 0 #C7CBD4;
+  background: url("https://github.com/MichaelRMC/Palamecia-Media/blob/main/assets/header.jpg") no-repeat center center;
   background-size: cover;
-  height: 180px;
+  height: 300px;
   width: 100%;
-  position: sticky;
+  position:relative;
   overflow: hidden;
   opacity: 0.6;
   line-height: 2.8em; 
@@ -35,7 +37,11 @@ header{
 }
 #inventory {
   display: grid;
-  grid-template-areas: "";
+  grid-template-areas: "boxArt  name"
+                       "boxArt genre"
+                       "  .    price"
+                       "  .  inStock"
+                       "  .   remove";
 }
 
 
