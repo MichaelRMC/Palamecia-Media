@@ -17,9 +17,11 @@
 
 	<div class="container">
 		<div id="inventory">
-
+			<ul>
+				
+			</ul>
 		</div>
-		<div id="form">
+		<div id="gameInfo">
 		<form>
 		<label for="name">Name</label>
 		<br>
@@ -37,6 +39,10 @@
 		<br>
 		<input type="text" name="platform" id="platform" required>
 		<br>
+		<label for="price">Price</label>
+		<br>
+		$<input type="number" min="0.00" max="70.00" step="0.01" name="price" id="price" required>
+		<br>
 		<label for="inStock">In Stock</label>
 		<br>
 		<select name="inStock" id="inStock">
@@ -44,10 +50,6 @@
 			<option value="yes">Yes</option>
 			<option value="no">No</option>
 		</select>
-		<br>
-		<label for="price">Price</label>
-		<br>
-		$<input type="number" min="0.00" max="70.00" step="0.01" name="price" id="price">
 		<br>
 		<br>
 		<input type="submit" value="Submit">
