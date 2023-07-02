@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<script src="app.js" defer></script>
+	<title>Palamecia Media</title>
+</head>
+<body>
+	<header class="gameHeader">
+		<h1>Palamecia Media</h1>
+    	<h2>New Name, Same Store, Same Great Game Inventory</h2>
+	</header>	
+	
+
+	<div class="container">
+		<div id="galaxymap">
+			<div class="worldCard"></div>
+
+				<div class="worldDetails"></div>
+
+			
+		</div>
+		<div id="worldInfo">
+		<form>
+			<fieldset>
+				<legend>World Info</legend>
+					<label for="title">Title</label>
+					<br>
+					<input type="text" name="title" id="title" required>
+					<br>
+					<label for="imageUrl">Image Url</label>
+					<br>
+					<input type="text" name="imageUrl" id="imageUrl">
+					<br>
+					<label for="genre">Genre</label>
+					<br>
+					<label for="actionAdventure">Action/Adventure</label>
+					<input type="checkbox" name="actionAdventure" id="genre">
+					<label for="figthing">Fighting</label>
+					<input type="checkbox" name="figthing" id="genre">
+					<label for="fps">FPS/Shooter</label>
+					<input type="checkbox" name="fps" id="genre">
+					<label for="platformer">Platformer</label>
+					<input type="checkbox" name="platformer" id="genre">
+					<label for="rpg">RPG</label>
+					<input type="checkbox" name="rpg" id="genre">
+					<label for="sports">Sports</label>
+					<input type="checkbox" name="sports" id="genre">
+					<label for="simulation">Simulation</label>
+					<input type="checkbox" name="simulation" id="genre">
+					<label for="strategy">Strategy</label>
+					<input type="checkbox" name="strategy" id="genre">
+					<br>
+					<label for="platform">Platform</label>		
+					<br>
+					<select name="platform" id="platform" required> 
+						<option>---- Select One ----</option>
+						<option value="ps3">PS3</option>
+						<option value="ps4">PS4</option>
+						<option value="ps5">PS5</option>
+						<option value="switch">Nintendo Switch</option>
+						<option value="wii">Wii</option>
+						<option value="xbox 360">Xbox 360</option>
+						<option value="xboxOne">Xbox One</option>
+						<option value="xboxSeriesX/S">Xbox Series X/S</option>
+					</select>
+					<br>
+					<label for="price">Price</label>
+					<br>
+					$<input type="number" min="0.00" max="69.99" step="0.01" name="price" id="price" required>
+					<br>
+					<label for="inStock">In Stock</label>
+					<br>
+					<select name="inStock" id="inStock">
+						<option>---- Select One ----</option>
+						<option value="in-stock">In Stock</option>
+						<option value="not-in-stock">Not In Stock</option>
+					</select>
+					<br>
+					<br>
+					<input type="submit" value="Submit">
+					<button type="reset">Reset</button>
+			</fieldset>
+	</form>
+	</div>
+	</div>
+</body>
+</html>

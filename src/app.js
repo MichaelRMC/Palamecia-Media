@@ -1,7 +1,8 @@
-const ul = document.querySelector("ul");
 const form = document.querySelector("form");
+const worldCard = document.querySelector("worldCard");
+const worldDetails = document.querySelector("worldDetails");
+const galaxyMap = document.querySelector("#galaxyMap");
 
-console.log(form);
 
 form.addEventListener("submit", (event) => {
   let boxArt = event.target.imageUrl.value;
@@ -10,34 +11,38 @@ form.addEventListener("submit", (event) => {
   let platform = event.target.platform.value;
   let price = event.target.price.value;
   let inStock = event.target.inStock.value;
+
+  createGalaxyMap( boxArt, name, genre, platform, price, inStock)
+
+  form.reset()
 });
 
 function getWorldInfo(boxArt, name, genre, platform, price, inStock) {
   if(boxArt) {
-		const div = document.createElement("div");
-		div.className = "boxArt";
-		li append(div, boxArt);
+		const img = document.createElement("img");
+		img.setAttribute(src, boxArt);
+	  worldCard.append(img);
 	}	
  
 	if(name) {
-	  const h2 = document.createElement("h2")
-	  h2.textContent = name		
-	  li.append(h2)
+	  const h4 = document.createElement("h4")
+	  h4.innerHTML = name;
+	  worldDetails.append(h4);
 	}
 	if(genre) {
 	  const p = document.createElement("p")
-	   p.textContent = genre;
-	  li.append(p)
+	   p.innerHTML = genre;
+	  worldDetails.append(p)
 	}
 	if(platform){
 	  const p = document.createElement("p")
-	  p.textContent = platform;
-	  li.append(p)
+	  p.innerHTML = platform;
+	  worldDetails.append(p)
 	}
 	if (price) {
 	  const p = document.createElement("p")
-	  p.textContent = price;
-	  li.append(p)
+	  p.innerHTML = price;
+	  worldDetails.append(p)
 	}
 	if(inStock) {
 	  let stockButton = document.createElement("button")
@@ -48,24 +53,26 @@ function getWorldInfo(boxArt, name, genre, platform, price, inStock) {
 
 		  const className = stockButton.className
 		  if (className == "in-stock") {
-		      this.textContent = "In Stock"
+		      this.innerHTML = "In Stock"
 			} else {
-			  this.textContent = "Not In Stock"
+			  this.innerHTML = "Not In Stock"
 			}
 		})
-	  li.append(stockButton)
+
+	  worldDetails.append(stockButton)
 	}
 
 	const remove = document.createElement("button")
-	remove.textContent = "Remove"
-	li.append(remove)
+	remove.innerHTML = "Remove"
+	galaxyMap.append(remove)
 
 	remove.addEventListener("click", (event) => {
-	    li.remove()
+	    worldCard.remove()
+		return galaxyMap
 		})
  }
 
 function createGalaxyMap(boxArt, name, genre, platform, price, inStock) {
-	const li = getWorldInfo(boxArt, name, genre, platform, price, inStock)
-	ul.prepend(li)
+	const worldCard = getWorldInfo(boxArt, name, genre, platform, price, inStock)
+	galaxyMap.prepend(li)
 }
