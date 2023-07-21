@@ -1,47 +1,51 @@
 const form = document.querySelector("form");
-const worldCard = document.querySelector("worldCard");
-const worldDetails = document.querySelector("worldDetails");
+const submit = document.querySelector("submit");
 const galaxyMap = document.querySelector("#galaxyMap");
 
-form.addEventListener("submit", (event) => {
-  let boxArt = event.target.imageUrl.value;
-  let name = event.target.name.value;
+submit.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  let boxArt = event.target.imageUrl.value
+  let title = event.target.title.value;
   let genre = event.target.genre.value;
   let platform = event.target.platform.value;
   let price = event.target.price.value;
   let inStock = event.target.inStock.value;
 
-  createGalaxyMap(boxArt, name, genre, platform, price, inStock);
+  createGalaxyMap(boxArt, title, genre, platform, price, inStock);
 
   form.reset();
 });
 
-function getWorldInfo(boxArt, name, genre, platform, price, inStock) {
+function getWorldInfo(boxArt, title, genre, platform, price, inStock) {
+  cont section = document.createElement("section")
+  section.classList.add("worldCard")
+
   if (boxArt) {
     const img = document.createElement("img");
-    img.setAttribute(src, boxArt);
-    worldCard.append(img);
+    img.setAttribute("src", boxArt);
+    section.append(img);
   }
 
-  if (name) {
-    const h4 = document.createElement("h4");
-    h4.innerHTML = name;
-    worldDetails.append(h4);
+  if (title) {
+    const h4 = document.createElement("h2");
+    h4.innerHTML = title;
+    section.append(h4);
   }
   if (genre) {
     const p = document.createElement("p");
     p.innerHTML = genre;
-    worldDetails.append(p);
+    section.append(p);
   }
   if (platform) {
     const p = document.createElement("p");
     p.innerHTML = platform;
-    worldDetails.append(p);
+    section.append(p);
   }
   if (price) {
     const p = document.createElement("p");
     p.innerHTML = price;
-    worldDetails.append(p);
+    section.append(p);
   }
   if (inStock) {
     let stockButton = document.createElement("button");
@@ -50,7 +54,7 @@ function getWorldInfo(boxArt, name, genre, platform, price, inStock) {
       stockButton.classList.toggle("in-stock");
       stockButton.classList.toggle("not-in-stock");
 
-      const className = stockButton.className;
+      const className = stockButton.classList;
       if (className == "in-stock") {
         this.innerHTML = "In Stock";
       } else {
@@ -58,20 +62,21 @@ function getWorldInfo(boxArt, name, genre, platform, price, inStock) {
       }
     });
 
-    worldDetails.append(stockButton);
+    section.append(stockButton);
   }
 
   const remove = document.createElement("button");
   remove.innerHTML = "Remove";
-  galaxyMap.append(remove);
+  section.append(remove);
 
   remove.addEventListener("click", (event) => {
-    worldCard.remove();
+    section.remove();
     return galaxyMap;
   });
 }
 
-function createGalaxyMap(boxArt, name, genre, platform, price, inStock) {
-  const worldCard = getWorldInfo(boxArt, name, genre, platform, price, inStock);
-  galaxyMap.prepend(li);
+function createGalaxyMap(boxArt, title, genre, platform, price, inStock) {
+  const world = getWorldInfo(boxArt, title, genre, platform, price, inStock);
+
+  galaxyMap.prepend(world);
 }
